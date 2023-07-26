@@ -83,7 +83,7 @@ This is a simple Node.js URL shortener project that allows you to shorten long U
 
 - `POST /api/shorten`: Shorten a long URL. (Request body: { "url": "long-url-here" })
 - `GET /api/redirect/:shortUrl`: Access the original URL associated with the given shortUrl code.
-- `POST /api/user/register`: Register a new user. (Request body: { "username": "your-username", "email": "your-email@example.com", "password": "your-password" })
+- `POST /api/user/register`: Register a new user. (Request body: { "firstName": "your-firstname", "lastName":"your-lastname","email": "your-email@example.com", "password": "your-password" })
 - `POST /api/user/login`: Login as a registered user. (Request body: { "email": "your-email@example.com", "password": "your-password" })
 
 ---
