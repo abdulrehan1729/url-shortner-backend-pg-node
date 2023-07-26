@@ -122,6 +122,14 @@ describe('Url endpoint', () => {
             }).set('Authorization', `Bearer ${token}`)
         expect(response.statusCode).toBe(401);
     });
+    it('should return a 400 status code', async () => {
+        const response = await request(baseUrl)
+            .post('/api/shorten').send({
+            }).set('Authorization', `Bearer ${token}`)
+
+        expect(response.text).toBe("{\"message\":\"\\\"longUrl\\\" is required\"}")
+        expect(response.statusCode).toBe(400);
+    });
     it('should return a 404 status code', async () => {
         const response = await request(baseUrl)
             .get('/api/redirect/12345678').send()

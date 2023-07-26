@@ -36,5 +36,6 @@ const validateUrl = (req, res, next) => {
 
 module.exports = {
     validateUserRegistration,
-    validateUserLogin
+    validateUserLogin,
+    validateUrl
 }
