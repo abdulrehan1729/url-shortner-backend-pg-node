@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js sequelie db:create 'urlShortner'",
-    "test": "npx jest"
+    "test": "npx jest",
+    "migrate": "sequelize db:migrate"
   },
   "author": "",
   "license": "ISC",
