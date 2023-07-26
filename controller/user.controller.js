@@ -64,9 +64,6 @@ const login = async (req, res) => {
     }
 }
 
-const validate = (params) => {
-
-}
 module.exports = {
     register,
     login

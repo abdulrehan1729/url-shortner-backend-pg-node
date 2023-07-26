@@ -62,15 +62,14 @@ const getShortUrl = async (req, res) => {
         }
 
         let response = await urls.findOne({ where: { urlCode: shortUrl } })
-        //The redis keys will be expires in every two hours
-        await redisClient.set(shortUrl, JSON.stringify(response), 'EX', 60 * 60 * 2, (err) => {
-            //cache for 2 hours
-            if (err) {
-                return res.status(500).send('Server error');
-            }
-        });
-
         if (response) {
+            //The redis keys will be expires in every two hours
+            await redisClient.set(shortUrl, JSON.stringify(response), 'EX', 60 * 60 * 2, (err) => {
+                //cache for 2 hours
+                if (err) {
+                    return res.status(500).send('Server error');
+                }
+            });
             return res.redirect(response.longUrl)
         } else {
             return res.status(404).send("Not Found")
